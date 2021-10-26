@@ -1,0 +1,1 @@
+export { Flower } from 'features/garden/components/Flower'
