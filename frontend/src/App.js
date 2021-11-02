@@ -1,13 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
-import { Flower } from 'features/garden/index'
+import { Route, Redirect, Switch } from 'react-router-dom'
+import { Home, Navigation, Test } from 'features/common/index';
+import { Dairy } from 'features/dairy/index'
+import { Garden, Flower } from 'features/garden/index'
+import { Goal } from 'features/goal/index'
+import { Review } from 'features/review/index'
 
 function App() {
   return (<>
-  <h1> Hello World </h1>
-  <Flower/>
+  {/* <Home/> */}
+  <Navigation/>
+  {/* <Test/> */}
+  <Switch>
+    <Route exact path='/' component= { Home }/>
+    <Redirect from='/home' to= { '/' }/>
+    <Route exact path='/dairy' component= { Dairy }/>
+    <Route exact path='/garden' component= { Garden }/>
+    <Route exact path='/goal' component= { Goal }/>
+    <Route exact path='/review' component= { Review }/>
+  </Switch>
   </>);
 }
 
